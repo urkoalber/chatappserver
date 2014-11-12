@@ -1,4 +1,4 @@
-chatapp
+chatappserver
 =======
 
 DAM chatapp testing server
