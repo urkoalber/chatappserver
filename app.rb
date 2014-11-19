@@ -3,7 +3,13 @@ require "sinatra"
 require "json"
 require "sinatra/activerecord"
  
-set :database, "sqlite3:app.db"
+configure :development, :test do
+  set :database, "sqlite3:app.db"
+end
+
+configure :production do
+  ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'] || 'postgres://localhost/chatappserver')
+end
 
 class User < ActiveRecord::Base
   before_save :default_values
