@@ -40,7 +40,7 @@ class Message < ActiveRecord::Base
   belongs_to :chat
 
   def default_values
-    self.type ||= 'text'
+    self.message_type ||= 'text'
     self.content ||= ''    
   end  
 end
